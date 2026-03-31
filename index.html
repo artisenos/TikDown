@@ -1,11 +1,123 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TikDown PRO - تنزيل فيديوهات TikTok</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<title>TikDown - تحميل TikTok</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #ff0050;
+  --bg-dark: #0f172a;
+  --text-light: #fff;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #111;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--text-light);
+}
+
+header .toggle {
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #e2e8f0;
+}
+
+.download-box {
+  margin-top: 20px;
+}
+
+.download-box input {
+  padding: 10px;
+  width: 60%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.download-box button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#videoBtn { background: #22c55e; }
+#audioBtn { background: #3b82f6; }
+
+.info-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.info-section .info-text {
+  flex: 1;
+  min-width: 300px;
+  margin-right: 20px;
+}
+
+.info-section .info-image img {
+  max-width: 300px;
+}
+
+.page-section {
+  padding: 40px 20px;
+  background: #f1f5f9;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0f172a;
+  color: #fff;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+</style>
 </head>
 <body>
 
@@ -25,15 +137,12 @@
   <p>حمل أي فيديو من TikTok بجودة HD أو MP3 بدون علامة مائية</p>
 
   <div class="download-box">
-  <input type="text" id="url" placeholder="ضع رابط الفيديو هنا">
-  
-  <button onclick="downloadVideo()">تحميل فيديو</button>
-<button onclick="downloadMP3()">تحميل MP3</button>
-  <div id="result"></div>
-</div>
+    <input type="text" id="url" placeholder="ضع رابط الفيديو هنا">
+    <br>
+    <button id="videoBtn">⬇️ تحميل فيديو</button>
+    <button id="audioBtn">🎵 تحميل MP3</button>
+  </div>
 </section>
-
-<!-- مكان الإعلان -->
 
 <!-- Section وصف -->
 <section class="info-section">
@@ -71,13 +180,11 @@
   <!-- الوصف -->
   <div class="card fade">
     <p>
-      Savetik واحد من أشهر برامج تنزيل الفيديو عبر الإنترنت يمكنك من حفظ مقاطع الفيديو عالية الدقة HD من TikTok بأعلى جودة ممكنة دون علامة مائية.
-      قم بتنزيل مقاطع فيديو TikTok ومقاطع الفيديو الموسيقية على أي جهاز تريده: الهاتف المحمول أو الكمبيوتر الشخصي أو الجهاز اللوحي.
+      TikDown واحد من أشهر مواقع تنزيل الفيديو يمكنك من حفظ مقاطع الفيديو HD بدون علامة مائية.
     </p>
 
     <p>
-      يسمح TikTok للمستخدمين فقط بتنزيل مقاطع الفيديو من خلال تطبيقه وتحتوي مقاطع الفيديو التي تم تنزيلها على العلامة المائية.
-      يستطيع التحميل بدون علامة مائية وبجودة أفضل، وهو ما لا تستطيع معظم الأدوات المتوفرة فعله.
+      TikTok يسمح بالتحميل مع علامة مائية، لكن موقعنا يوفر تحميل نظيف وبجودة أفضل.
     </p>
   </div>
 
@@ -85,8 +192,7 @@
   <div class="card fade">
     <h3>⚡ التنزيل باستخدام المتصفح فقط</h3>
     <p>
-      نريد أن نجعل الأمور بسيطة بالنسبة لك. لا حاجة لتنزيل أو تثبيت أي برنامج.
-      يمكنك تحميل الفيديو مباشرة من المتصفح بكل سهولة.
+      لا حاجة لتنزيل أو تثبيت أي برنامج، كل شيء يعمل مباشرة من المتصفح.
     </p>
   </div>
 
@@ -94,35 +200,18 @@
   <div class="card fade">
     <h2>❓ أسئلة مكررة</h2>
 
-    <h4>كيفية تنزيل مقاطع فيديو TikTok بدون علامة مائية؟</h4>
+    <h4>كيفية تنزيل فيديو TikTok؟</h4>
     <p>
-      1. ابحث عن الفيديو وانسخ الرابط<br>
-      2. الصق الرابط في الخانة بالأعلى<br>
-      3. اضغط على زر تحميل وانتظر قليلاً
+      1. انسخ الرابط<br>
+      2. الصقه في الموقع<br>
+      3. اضغط تحميل
     </p>
 
     <h4>أين يتم حفظ الفيديو؟</h4>
-    <p>
-      يتم حفظ الفيديو عادة في مجلد "Downloads"، ويمكنك تغييره حسب رغبتك.
-    </p>
-
-    <h4>هل يتم حفظ البيانات؟</h4>
-    <p>
-      لا، نحن لا نخزن أي فيديو أو سجل تحميل. كل شيء يتم مباشرة من خوادم TikTok.
-    </p>
-
-    <h4>هل يدعم Android؟</h4>
-    <p>نعم، يعمل على جميع هواتف Android بدون مشاكل.</p>
-
-    <h4>هل يعمل على iPhone؟</h4>
-    <p>
-      نعم، لكن قد تحتاج تطبيق Documents by Readdle بسبب سياسة Apple.
-    </p>
+    <p>في مجلد Downloads.</p>
 
     <h4>هل الخدمة مجانية؟</h4>
-    <p>
-      نعم، الخدمة مجانية 100% وبدون أي حدود.
-    </p>
+    <p>نعم 100% مجانية.</p>
 
   </div>
 

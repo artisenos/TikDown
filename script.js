@@ -7,29 +7,41 @@ toggle.addEventListener("click", () => {
 
 // Download Function
 
-// 🎥 تحميل فيديو من السيرفر
-const SERVER = "https://your-app.onrender.com"; // بدلها برابطك
-function downloadVideo() {
-  let user = document.getElementById("url").value;
+// 🌐 رابط السيرفر تاعك (Render)
+const SERVER = "https://tikdown-os6v.onrender.com";
 
-  if (!user) {
-    alert("❌ ضع اسم المستخدم");
+// عناصر الصفحة
+const urlInput = document.getElementById("url");
+const videoBtn = document.getElementById("videoBtn");
+const audioBtn = document.getElementById("audioBtn");
+
+// 🎥 تحميل فيديو
+videoBtn.addEventListener("click", () => {
+  const url = urlInput.value.trim();
+
+  if (!url) {
+    alert("❌ ضع رابط فيديو TikTok");
     return;
   }
 
-  window.location.href = `${SERVER}/video?user=${encodeURIComponent(user)}`;
-}
+  // تحويل مباشر للتحميل
+  window.location.href = `${SERVER}/download/video?url=${encodeURIComponent(url)}`;
+});
 
-function downloadMP3() {
-  let user = document.getElementById("url").value;
 
-  if (!user) {
-    alert("❌ ضع اسم المستخدم");
+// 🎵 تحميل MP3
+audioBtn.addEventListener("click", () => {
+  const url = urlInput.value.trim();
+
+  if (!url) {
+    alert("❌ ضع رابط فيديو TikTok");
     return;
   }
 
-  window.location.href = `${SERVER}/mp3?user=${encodeURIComponent(user)}`;
-}
+  // تحميل الصوت
+  window.location.href = `${SERVER}/download/mp3?url=${encodeURIComponent(url)}`;
+});
+
 // Animation on scroll
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".fade").forEach(el => {
