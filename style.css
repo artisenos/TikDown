@@ -1,0 +1,546 @@
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-light: #ffffff;
+  --text-dark: #ffffff;
+  --text-light: #111111;
+  --accent: #ffffff;
+  --card-dark: rgba(30,30,30,0.85);
+  --card-light: #ffffff;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: #0f172a;
+  color: #fff;
+}
+
+
+/* Links */
+a { color: var(--accent); text-decoration: none; transition: 0.3s; }
+a:hover { opacity: 0.8; }
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+  z-index: 1000;
+  background: transparent;
+}
+
+header .logo { font-size: 24px; font-weight: 700; color: var(--accent); }
+nav a { margin: 0 12px; font-weight: 600; font-size: 14px; }
+.toggle { cursor: pointer; font-size: 20px; }
+
+/* Hero Section */
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+}
+.hero h1 { font-size: clamp(28px,5vw,48px); margin-bottom: 15px; }
+.hero p { color: #b5b5b5; margin-bottom: 30px; }
+
+/* Download Box */
+.download-box {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.download-box input, .download-box button {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+}
+.download-box button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.download-box button:hover { background: #d90044; }
+
+/* Cards */
+.card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  background-color: var(--card-dark);
+  transition: all 0.3s ease;
+}
+
+/* Social Icons */
+.social-icons a img { width: 30px; margin: 0 5px; transition: transform 0.3s; }
+.social-icons a img:hover { transform: scale(1.2); }
+
+/* Footer */
+footer { padding: 20px; text-align: center; color: #b5b5b5; font-size: 14px; }
+
+/* Page Sections */
+.page-section { padding: 60px 20px; text-align: center; }
+
+/* Animations */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fadeDown { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
+
+/* Dark/Light Mode */
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+body.light .card { background-color: var(--card-light); color: var(--text-light); }
+
+/* Responsive */
+@media(max-width:768px){
+  nav a { margin: 0 8px; font-size: 13px; }
+  .hero h1 { font-size: clamp(24px,6vw,38px); }
+  .download-box input, .download-box button { font-size: 14px; }
+}
+
+/* Fade Animation */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
+}
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards تحسين */
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.card p {
+  color: #b5b5b5;
+  margin-bottom: 10px;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step span {
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* تحسين شكل النصوص داخل الكارد */
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card h4 {
+  margin-top: 15px;
+  color: #fdfdfd;
+}
+
+.card p {
+  color: #b5b5b5;
+  line-height: 1.8;
+}
+
+/* إعلان */
+.ad-box {
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed #444;
+  max-width: 600px;
+}
+
+/* info section */
+.info-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-text h2 {
+  font-size: 28px;
+}
+
+.info-text h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.info-text p {
+  color: #b5b5b5;
+  margin-bottom: 10px;
+}
+
+.info-image img {
+  width: 120px;
+}
+
+/* FAQ */
+.faq {
+  padding: 50px 20px;
+}
+
+.faq-title {
+  font-size: 28px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.faq-box {
+  background: rgba(30,30,30,0.8);
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.faq-box:hover {
+  transform: translateY(-5px);
+}
+
+.faq-box h4 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.faq-box p {
+  color: #b5b5b5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: #0f172a;
+  color: #fff;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #020617;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #aaa;
+}
+
+/* DOWNLOAD BOX */
+.download-box {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-box input {
+  padding: 12px;
+  width: 350px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+.download-box button {
+  padding: 12px 20px;
+  background: #22c55e;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+/* INFO SECTION */
+.info-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  gap: 30px;
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-image img {
+  width: 250px;
+  max-width: 100%;
+}
+
+/* CARDS */
+.page-section {
+  padding: 30px 20px;
+}
+
+.card {
+  background: #020617;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+/* 🔥 RESPONSIVE للموبايل */
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .download-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-box input,
+  .download-box button {
+    width: 100%;
+  }
+
+  .info-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-image img {
+    width: 180px;
+  }
+}
+
+/* 🔥 FIX + تحسين الموبايل بدون تغيير التصميم */
+
+/* منع التكرار من يكسر التصميم */
+header {
+  flex-wrap: wrap;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* تحسين input */
+.download-box input {
+  width: 100%;
+}
+
+/* تحسين الصورة */
+.info-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 🔥 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 5px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 30px 15px;
+  }
+
+  /* Download box */
+  .download-box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .download-box input,
+  .download-box button {
+    width: 100%;
+  }
+
+  /* Info section */
+  .info-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-text {
+    width: 100%;
+  }
+
+  /* Cards */
+  .card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  /* FAQ grid */
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* تحسين الخط */
+  body {
+    font-size: 14px;
+  }
+
+}
+
+/* الوضع الليلي (default) */
+body{
+background:#000000;
+color:white;
+}
+
+/* الوضع النهاري */
+body.light{
+background:white;
+color:black;
+}
+
+/* النصوص */
+body.light h1,
+body.light p,
+body.light label{
+color:black;
+}
+
+/* الصندوق */
+body.light .box{
+background:#f1f5f9;
+}
+
+/* input */
+body.light input{
+background:white;
+color:black;
+border:1px solid #ccc;
+}
+
+/* الأزرار */
+body.light .btn{
+background:#22c55e;
+color:white;
+}
